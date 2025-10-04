@@ -309,8 +309,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 **Support**
 
 - **Issues**: [GitHub Issues](https://github.com/prashanth30-n/skillsocket/issues)
-- **Documentation**: [Wiki](https://github.com/prashanth30-n/skillsocket/wiki)
-- **Email**: prashanth30.n@email.com
+
+- **Gmail**: prashanthnakerikanti@gmail.com
 
 ---
 
