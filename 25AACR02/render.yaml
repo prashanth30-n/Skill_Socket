@@ -1,0 +1,46 @@
+# This render.yaml is for reference only
+# Since we're using Docker Hub method, create the service manually in Render dashboard
+
+# Manual Render Setup Instructions:
+# 1. Go to Render Dashboard → New Web Service
+# 2. Choose "Deploy an existing image from a registry"
+# 3. Image URL: docker.io/yourusername/skillsocket-backend:latest
+# 4. Configure as shown below:
+
+services:
+  - type: web
+    name: skillsocket-backend
+    env: docker
+    # Image will be pulled from Docker Hub automatically
+    image:
+      url: docker.io/yourusername/skillsocket-backend:latest
+    plan: free
+    region: oregon  # Choose closest to your users
+    healthCheckPath: /api/health
+    # Auto-deploy when new image is pushed to Docker Hub
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      # Add your MongoDB connection string manually in Render dashboard
+      - key: MONGODB_URI
+        value: "mongodb+srv://username:password@cluster.mongodb.net/skillsocket"
+      # Generate a strong JWT secret manually in Render dashboard  
+      - key: JWT_SECRET
+        value: "your-super-secret-jwt-key-here"
+      # Optional: Add these if you use Cloudinary
+      - key: CLOUDINARY_CLOUD_NAME
+        value: "your-cloudinary-name"
+      - key: CLOUDINARY_API_KEY
+        value: "your-cloudinary-key"
+      - key: CLOUDINARY_API_SECRET
+        value: "your-cloudinary-secret"
+      # Optional: Add these if you use Firebase
+      - key: FIREBASE_PROJECT_ID
+        value: "your-firebase-project-id"
+      - key: FIREBASE_CLIENT_EMAIL
+        value: "your-firebase-client-email"
+      - key: FIREBASE_PRIVATE_KEY
+        value: "your-firebase-private-key"
