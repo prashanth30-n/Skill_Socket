@@ -8,7 +8,7 @@ class MCPRouter {
         const agentDescriptions = `
 - perplexity: Answers specific questions using web search. Use for facts, definitions, current events, or general knowledge questions.
 - roadmap: Generates a detailed learning plan for a topic. Use for "how to learn X", "roadmap for Y", "study plan", "learning path".
-- skillmatch: Recommends users with complementary skills from the database. Use for "find users who need X and offer Y", "match me with users", "skill exchange", "connect me with", "users who have", "people who need".`;
+- skillmatch: Finds users with complementary skills for skill exchange. Use for ANY query mentioning skills like "I offer X", "I need Y", "I can teach Z", "I want to learn W", "find users", "match me", "skill exchange", "connect me", "users who have", "people who need", or any combination of offering and learning skills.`;
         const prompt = `You are an intelligent router. Select the best agent for the user's query.\n\nAvailable agents:\n${agentDescriptions}\n\nUser query: "${query}"\n\nRespond with a JSON object containing "agent" (the agent's name) and "input" (the query for that agent).`;
         const responseStr = await this.llmClient.generateText(prompt, 0.1);
         try {

@@ -25,16 +25,18 @@ class SkillMatchAgent {
         Query: "${query}"
         
         Instructions:
-        - "skillsRequired" = skills the user wants to learn
-        - "skillsOffered" = skills the user can teach/offer
-        - Use common skill names like "JavaScript", "Python", "React", "Flutter", "Java", "Machine Learning", etc.
-        - If no specific skills are mentioned, make reasonable assumptions based on context
+        - "skillsRequired" = skills the user wants to learn, need, or is looking for
+        - "skillsOffered" = skills the user can teach, offer, knows, or is good at
+        - Look for phrases like: "I offer", "I can teach", "I know", "I'm good at", "I have experience in" (for offered skills)
+        - Look for phrases like: "I need", "I want to learn", "I'm looking for", "help me with", "teach me" (for required skills)
+        - Use common skill names like "JavaScript", "Python", "React", "Flutter", "Java", "Machine Learning", "Node.js", "CSS", "HTML", etc.
+        - If user mentions wanting to exchange or trade skills, extract both sides appropriately
+        - If no specific skills are mentioned, return empty arrays
         
-        Example format:
-        {
-          "skillsRequired": ["Flutter", "Dart"],
-          "skillsOffered": ["Java", "Spring Boot"]
-        }
+        Example formats:
+        Query: "I offer Flutter and need Java" → {"skillsRequired": ["Java"], "skillsOffered": ["Flutter"]}
+        Query: "I can teach Python, want to learn React" → {"skillsRequired": ["React"], "skillsOffered": ["Python"]}
+        Query: "Help me find users" → {"skillsRequired": [], "skillsOffered": []}
         
         Return only the JSON, no explanation:
       `;

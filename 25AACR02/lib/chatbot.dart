@@ -66,8 +66,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       try {
         final mcpResponse = await http
             .post(
-              Uri.parse(
-                  'https://skillsocket-mcp-gateway.onrender.com/mcp/invoke'),
+              Uri.parse('https://skill-socket-agents.onrender.com/mcp/invoke'),
               headers: {
                 'Content-Type': 'application/json',
               },
@@ -459,14 +458,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 ),
                 SizedBox(height: 8),
                 _buildOptionButton(
-                  label: "Find users who need Java and offer Flutter",
-                  onTap: () {
-                    _sendPredefinedMessage(
-                        "Find me users who need Java skills and offer Flutter skills");
-                  },
-                ),
-                SizedBox(height: 8),
-                _buildOptionButton(
                   label: "Suggest me a skill to learn",
                   onTap: () {
                     _sendPredefinedMessage(
@@ -497,7 +488,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     child: TextField(
                       controller: _controller,
                       decoration: InputDecoration(
-                        hintText: "Ask me anything...",
+                        hintText:
+                            "Type: 'I offer Flutter, need Java' or ask anything...",
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
                           horizontal: 16,
